@@ -11,10 +11,19 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
 
+      - name: Install unpub_auth
+        run: dart pub global activate unpub_auth
+        
+      - name: Create credentials file
+        run: echo $PUB_CREDENTIALS > ~/pub-credentials.json
+        env:
+          PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
+          
+      - name: Migrate credentials
+        run: npub_auth migrate ~/pub-credentials.json
+        
+      - name: Send credentials to the Dart client
+        run: unpub_auth get | dart pub token add https://pub.dev
+
       - name: Publish
-        uses: sakebook/actions-flutter-pub-publisher@v1.3.1
-        with:
-          credential: ${{ secrets.PUB_CREDENTIALS }}
-          flutter_package: false
-          skip_test: true
-          dry_run: false
+        run: dart pub publish
