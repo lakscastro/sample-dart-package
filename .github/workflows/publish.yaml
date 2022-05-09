@@ -26,4 +26,4 @@ jobs:
         run: unpub_auth get | dart pub token add https://pub.dev
 
       - name: Publish
-        run: dart pub publish
+        run: dart pub publish --force
