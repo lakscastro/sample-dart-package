@@ -20,7 +20,7 @@ jobs:
           PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
           
       - name: Migrate credentials
-        run: npub_auth migrate ~/pub-credentials.json
+        run: unpub_auth migrate ~/pub-credentials.json
         
       - name: Send credentials to the Dart client
         run: unpub_auth get | dart pub token add https://pub.dev
