@@ -1,6 +1,6 @@
 name: sample_dart_package
-description: "📦 Sample Dart package with GitHub action to publish a new release on new commit on release branch"
-version: 0.1.0
+description: "Sample Dart package with GitHub action to publish a new release on new commit on release branch"
+version: 0.5.0
 homepage: https://github.com/lakscastro/sample-dart-package
 repository: https://github.com/lakscastro/sample-dart-package
 issue_tracker: https://github.com/lakscastro/sample-dart-package/issues
